@@ -11,5 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require material_icons
  *= require_self
  */
+ @import "materialize";
+ // @import "https://fonts.googleapis.com/icon?family=Material+Icons";

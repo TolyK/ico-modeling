@@ -1,222 +1,237 @@
-<%= form_for(ico) do |f| %>
-  <% if ico.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ico.errors.count, "error") %> prohibited this ico from being saved:</h2>
-
-      <ul>
-      <% ico.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container">
+  <%= form_for(ico) do |f| %>
+    <% if ico.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(ico.errors.count, "error") %> prohibited this ico from being saved:</h2>
+  
+        <ul>
+        <% ico.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <h1>Add an ICO!!</h1>
+    
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Enter ICO name" %>
+    </div>
+    
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Page title for SEO" %>
+    </div>
+  
+    <div>
+      <%= f.label :logo_img %>
+      <%= f.text_field :logo_img, placeholder: "Logo img link" %>
+    </div>
+  
+    <div>
+      <%= f.label :logo_img_alt %>
+      <%= f.text_field :logo_img_alt, placeholder: "image alt, ICO name" %>
+    </div>
+  
+    <div>
+      <%= f.label :overview %>
+      <%= f.text_area :overview, :class => "tinymce", :rows => 40, :cols => 120  %>
+    </div>
+  
+    <div>
+      <%= f.label :meta_description %>
+      <%= f.text_area :meta_description, placeholder: "for SEO, 50-300 characters; this is what comes up in google search" %>
+    </div>
+  
+    <div>
+      <%= f.label :header_img %>
+      <%= f.text_field :header_img, placeholder: "Logo img link" %>
+    </div>
+  
+    <div>
+      <%= f.label :header_img_alt %>
+      <%= f.text_field :header_img_alt, placeholder: "image alt, ICO description"  %>
+    </div>
+  
+    <div>
+      <%= f.label :website %>
+      <%= f.text_field :website %>
+    </div>
+  
+    <div>
+      <%= f.label :report_date %>
+      <%= f.date_select :report_date %>
+    </div>
+  
+    <div>
+      <%= f.label :team %>
+      <%= f.number_field :team %>
+    </div>
+  
+    <div>
+      <%= f.label :advisors %>
+      <%= f.number_field :advisors %>
+    </div>
+    
+    <div>
+      <%= f.label :investors %>
+      <%= f.number_field :investors %>
+    </div>
+  
+    <div>
+      <%= f.label :codebase %>
+      <%= f.number_field :codebase %>
+    </div>
+  
+    <div>
+      <%= f.label :community %>
+      <%= f.number_field :community %>
+    </div>
+  
+    <div>
+      <%= f.label :vision %>
+      <%= f.number_field :vision %>
+    </div>
+  
+    <div>
+      <%= f.label :market %>
+      <%= f.number_field :market %>
+    </div>
+  
+    <div>
+      <%= f.label :traction %>
+      <%= f.number_field :traction %>
+    </div>
+  
+    <div>
+      <%= f.label :marketing %>
+      <%= f.number_field :marketing %>
+    </div>
+  
+    <div>
+      <%= f.label :whitepaper %>
+      <%= f.number_field :whitepaper %>
+    </div>
+  
+    <div>
+      <%= f.label :roadmap %>
+      <%= f.number_field :roadmap %>
+    </div>
+  
+    <div>
+      <%= f.label :ico_currency %>
+      <%= f.text_field :ico_currency %>
+    </div>
+  
+    <div>
+      <%= f.label :ico_currency_price %>
+      <%= f.text_field :ico_currency_price %>
+    </div>
+  
+    <div>
+      <%= f.label :symbol %>
+      <%= f.text_field :symbol %>
+    </div>
+  
+    <div>
+      <%= f.label :total_supply %>
+      <%= f.number_field :total_supply %>
+    </div>
+  
+    <div>
+      <%= f.label :token_price_low %>
+      <%= f.text_field :token_price_low %>
+    </div>
+  
+    <div>
+      <%= f.label :token_price_high %>
+      <%= f.text_field :token_price_high %>
+    </div>
+  
+    <div>
+      <%= f.label :ICO_valuation_low %>
+      <%= f.text_field :ICO_valuation_low %>
+    </div>
+  
+    <div>
+      <%= f.label :ICO_valuation_high %>
+      <%= f.text_field :ICO_valuation_high %>
+    </div>
+  
+    <div>
+      <%= f.label :ICO_start_date %>
+      <%= f.date_select :ICO_start_date %>
+    </div>
+  
+    <div>
+      <%= f.label :ICO_end_date %>
+      <%= f.date_select :ICO_end_date %>
+    </div>
+  
+    <div>
+      <%= f.label :soft_cap %>
+      <%= f.number_field :soft_cap %>
+    </div>
+  
+    <div>
+      <%= f.label :hard_cap %>
+      <%= f.number_field :hard_cap %>
+    </div>
+  
+    <div>
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </div>
+  
+    <div>
+      <%= f.label :youtube %>
+      <%= f.text_field :youtube %>
+    </div>
+  
+    <div>
+      <%= f.label :twitter %>
+      <%= f.text_field :twitter %>
+    </div>
+  
+    <div>
+      <%= f.label :telegram %>
+      <%= f.text_field :telegram %>
+    </div>
+  
+    <div>
+      <%= f.label :reddit %>
+      <%= f.text_field :reddit %>
+    </div>
+  
+    <div>
+      <%= f.label :facebook %>
+      <%= f.text_field :facebook %>
+    </div>
+  
+    <div>
+      <%= f.label :youtube %>
+      <%= f.text_field :youtube %>
+    </div>
+  
+    <div>
+      <%= f.label :github %>
+      <%= f.text_field :github %>
+    </div>
+  
+    <div>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+  
+    <div>
+      <%= f.check_box :active %>
+      <%= f.label :active %>
+    </div>
+  
+    <div class="btn waves-effect waves-light">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :logo_img %>
-    <%= f.text_field :logo_img %>
-  </div>
-
-  <div class="field">
-    <%= f.label :logo_img_alt %>
-    <%= f.text_field :logo_img_alt %>
-  </div>
-
-  <div class="field">
-    <%= f.label :overview %>
-    <%= f.text_area :overview %>
-  </div>
-
-  <div class="field">
-    <%= f.label :meta_description %>
-    <%= f.text_area :meta_description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :header_img %>
-    <%= f.text_field :header_img %>
-  </div>
-
-  <div class="field">
-    <%= f.label :header_img_alt %>
-    <%= f.text_field :header_img_alt %>
-  </div>
-
-  <div class="field">
-    <%= f.label :website %>
-    <%= f.text_field :website %>
-  </div>
-
-  <div class="field">
-    <%= f.label :report_date %>
-    <%= f.date_select :report_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :team %>
-    <%= f.number_field :team %>
-  </div>
-
-  <div class="field">
-    <%= f.label :advisors %>
-    <%= f.number_field :advisors %>
-  </div>
-
-  <div class="field">
-    <%= f.label :codebase %>
-    <%= f.number_field :codebase %>
-  </div>
-
-  <div class="field">
-    <%= f.label :community %>
-    <%= f.number_field :community %>
-  </div>
-
-  <div class="field">
-    <%= f.label :vision %>
-    <%= f.number_field :vision %>
-  </div>
-
-  <div class="field">
-    <%= f.label :market %>
-    <%= f.number_field :market %>
-  </div>
-
-  <div class="field">
-    <%= f.label :traction %>
-    <%= f.number_field :traction %>
-  </div>
-
-  <div class="field">
-    <%= f.label :marketing %>
-    <%= f.number_field :marketing %>
-  </div>
-
-  <div class="field">
-    <%= f.label :whitepaper %>
-    <%= f.number_field :whitepaper %>
-  </div>
-
-  <div class="field">
-    <%= f.label :roadmap %>
-    <%= f.number_field :roadmap %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ico_currency %>
-    <%= f.text_field :ico_currency %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ico_currency_price %>
-    <%= f.text_field :ico_currency_price %>
-  </div>
-
-  <div class="field">
-    <%= f.label :symbol %>
-    <%= f.text_field :symbol %>
-  </div>
-
-  <div class="field">
-    <%= f.label :total_supply %>
-    <%= f.number_field :total_supply %>
-  </div>
-
-  <div class="field">
-    <%= f.label :token_price_low %>
-    <%= f.text_field :token_price_low %>
-  </div>
-
-  <div class="field">
-    <%= f.label :token_price_high %>
-    <%= f.text_field :token_price_high %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ICO_valuation_low %>
-    <%= f.text_field :ICO_valuation_low %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ICO_valuation_high %>
-    <%= f.text_field :ICO_valuation_high %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ICO_start_date %>
-    <%= f.date_select :ICO_start_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ICO_end_date %>
-    <%= f.date_select :ICO_end_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :soft_cap %>
-    <%= f.number_field :soft_cap %>
-  </div>
-
-  <div class="field">
-    <%= f.label :hard_cap %>
-    <%= f.number_field :hard_cap %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %>
-    <%= f.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= f.label :youtube %>
-    <%= f.text_field :youtube %>
-  </div>
-
-  <div class="field">
-    <%= f.label :twitter %>
-    <%= f.text_field :twitter %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telegram %>
-    <%= f.text_field :telegram %>
-  </div>
-
-  <div class="field">
-    <%= f.label :reddit %>
-    <%= f.text_field :reddit %>
-  </div>
-
-  <div class="field">
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook %>
-  </div>
-
-  <div class="field">
-    <%= f.label :youtube %>
-    <%= f.text_field :youtube %>
-  </div>
-
-  <div class="field">
-    <%= f.label :github %>
-    <%= f.text_field :github %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= tinymce %>
+</div>
