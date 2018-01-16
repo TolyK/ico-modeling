@@ -1,0 +1,2 @@
+class IcoPolicy < ApplicationPolicy
+end

@@ -1,5 +1,11 @@
-<li><%= link_to "Sign up", new_user_registration_path %></li>
-<li><%= link_to "Sign in", new_user_session_path %></li>
+<% if current_user %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Sign in", new_user_session_path %>
+<% end %>
+
+
 
 <p id="notice"><%= notice %></p>
 
@@ -97,9 +103,11 @@
         <td><%= ico.github %></td>
         <td><%= ico.description %></td>
         <td><%= ico.active %></td>
-        <td><%= link_to 'Show', ico %></td>
-        <td><%= link_to 'Edit', edit_ico_path(ico) %></td>
-        <td><%= link_to 'Destroy', ico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if policy(ico).edit? %>
+          <td><%= link_to 'Show', ico %></td>
+          <td><%= link_to 'Edit', edit_ico_path(ico) %></td>
+          <td><%= link_to 'Destroy', ico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -107,4 +115,6 @@
 
 <br>
 
-<%= link_to 'New Ico', new_ico_path %>
+<% if policy(Ico.new).create? %>
+  <%= link_to 'New Ico', new_ico_path %>
+<% end %>

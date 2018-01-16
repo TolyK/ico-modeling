@@ -15,17 +15,19 @@ class IcosController < ApplicationController
   # GET /icos/new
   def new
     @ico = Ico.new
+    authorize @ico
   end
 
   # GET /icos/1/edit
   def edit
+    authorize @ico
   end
 
   # POST /icos
   # POST /icos.json
   def create
     @ico = Ico.new(ico_params)
-
+    authorize @ico
     respond_to do |format|
       if @ico.save
         format.html { redirect_to @ico, notice: 'Ico was successfully created.' }
@@ -40,6 +42,7 @@ class IcosController < ApplicationController
   # PATCH/PUT /icos/1
   # PATCH/PUT /icos/1.json
   def update
+    authorize @ico
     respond_to do |format|
       if @ico.update(ico_params)
         format.html { redirect_to @ico, notice: 'Ico was successfully updated.' }
@@ -55,6 +58,7 @@ class IcosController < ApplicationController
   # DELETE /icos/1.json
   def destroy
     @ico.destroy
+    authorize @ico
     respond_to do |format|
       format.html { redirect_to icos_url, notice: 'Ico was successfully destroyed.' }
       format.json { head :no_content }
