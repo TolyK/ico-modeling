@@ -206,4 +206,5 @@
 </p>
 
 <%= link_to 'Edit', edit_ico_path(@ico) %> |
+<%= link_to 'Destroy', @ico, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', icos_path %>

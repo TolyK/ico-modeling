@@ -25,3 +25,11 @@ $(document).on('turbolinks:load', function() {
 $(document).ready(function(){
   $('.parallax').parallax();
 });
+
+jQuery(function($) {
+
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+
+});

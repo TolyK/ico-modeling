@@ -1,120 +1,41 @@
-<% if current_user %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %>
-  <%= link_to "Sign in", new_user_session_path %>
-<% end %>
-
-
+<div class="container">
 
 <p id="notice"><%= notice %></p>
 
-<h1>Icos</h1>
+<h1 class="center">Live ICOs</h1>
+<h6 class=center>ICOModeling does not provide investment, financial, or legal advice. This site cannot substitute for professional advice and independent factual verification. ICO Alert does not endorse any initial coin offerings advertised on this site but does receive compensation for advertising certain offerings in purple text below and in the purple banner above. The content provided or linked on this site is for informational purposes only. <%= link_to "Disclaimer", disclaimer_index_path %></h6>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Logo img</th>
-      <th>Logo img alt</th>
-      <th>Overview</th>
-      <th>Meta description</th>
-      <th>Header img</th>
-      <th>Header img alt</th>
-      <th>Website</th>
-      <th>Report date</th>
-      <th>Team</th>
-      <th>Advisors</th>
-      <th>Codebase</th>
-      <th>Community</th>
-      <th>Vision</th>
-      <th>Market</th>
-      <th>Traction</th>
-      <th>Marketing</th>
-      <th>Whitepaper</th>
-      <th>Roadmap</th>
-      <th>Ico currency</th>
-      <th>Ico currency price</th>
-      <th>Symbol</th>
-      <th>Total supply</th>
-      <th>Token price low</th>
-      <th>Token price high</th>
-      <th>Ico valuation low</th>
-      <th>Ico valuation high</th>
-      <th>Ico start date</th>
-      <th>Ico end date</th>
-      <th>Soft cap</th>
-      <th>Hard cap</th>
-      <th>Country</th>
-      <th>Youtube</th>
-      <th>Twitter</th>
-      <th>Telegram</th>
-      <th>Reddit</th>
-      <th>Facebook</th>
-      <th>Youtube</th>
-      <th>Github</th>
-      <th>Description</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @icos.each do |ico| %>
-      <tr>
-        <td><%= ico.name %></td>
-        <td><%= ico.logo_img %></td>
-        <td><%= ico.logo_img_alt %></td>
-        <td><%= ico.overview %></td>
-        <td><%= ico.meta_description %></td>
-        <td><%= ico.header_img %></td>
-        <td><%= ico.header_img_alt %></td>
-        <td><%= ico.website %></td>
-        <td><%= ico.report_date %></td>
-        <td><%= ico.team %></td>
-        <td><%= ico.advisors %></td>
-        <td><%= ico.codebase %></td>
-        <td><%= ico.community %></td>
-        <td><%= ico.vision %></td>
-        <td><%= ico.market %></td>
-        <td><%= ico.traction %></td>
-        <td><%= ico.marketing %></td>
-        <td><%= ico.whitepaper %></td>
-        <td><%= ico.roadmap %></td>
-        <td><%= ico.ico_currency %></td>
-        <td><%= ico.ico_currency_price %></td>
-        <td><%= ico.symbol %></td>
-        <td><%= ico.total_supply %></td>
-        <td><%= ico.token_price_low %></td>
-        <td><%= ico.token_price_high %></td>
-        <td><%= ico.ICO_valuation_low %></td>
-        <td><%= ico.ICO_valuation_high %></td>
-        <td><%= ico.ICO_start_date %></td>
-        <td><%= ico.ICO_end_date %></td>
-        <td><%= ico.soft_cap %></td>
-        <td><%= ico.hard_cap %></td>
-        <td><%= ico.country %></td>
-        <td><%= ico.youtube %></td>
-        <td><%= ico.twitter %></td>
-        <td><%= ico.telegram %></td>
-        <td><%= ico.reddit %></td>
-        <td><%= ico.facebook %></td>
-        <td><%= ico.youtube %></td>
-        <td><%= ico.github %></td>
-        <td><%= ico.description %></td>
-        <td><%= ico.active %></td>
-        <% if policy(ico).edit? %>
-          <td><%= link_to 'Show', ico %></td>
-          <td><%= link_to 'Edit', edit_ico_path(ico) %></td>
-          <td><%= link_to 'Destroy', ico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="row">
+  <div class="col s12">
+    <table class="highlight">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Dates</th>
+            <th>Valuation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @icos.each do |ico| %>
+            <tr>
+              <td width="50%">
+                <%= link_to ico.name, ico %> - <%= link_to ico.meta_description, ico %>
+              </td>
+              <td>
+                <%= link_to ico.ICO_start_date.strftime("%B" + "-" + "%e"), ico %> to <%= link_to ico.ICO_end_date.strftime("%B" + "-" + "%e"), ico %>
+              </td>
+              <td>
+                <%= link_to ico.ICO_valuation_low, ico %> - <%= link_to ico.ICO_valuation_high, ico %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
 <br>
 
 <% if policy(Ico.new).create? %>
   <%= link_to 'New Ico', new_ico_path %>
 <% end %>
+</div>

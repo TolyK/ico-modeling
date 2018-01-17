@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'disclaimer/index'
+
   devise_for :users
   resources :icos
   root to: 'icos#index'
