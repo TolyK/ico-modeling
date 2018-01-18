@@ -73,6 +73,6 @@ class IcosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ico_params
-      params.require(:ico).permit(:name, :logo_img, :logo_img_alt, :overview, :meta_description, :header_img, :header_img_alt, :website, :report_date, :team, :advisors, :codebase, :community, :vision, :market, :traction, :marketing, :whitepaper, :roadmap, :ico_currency, :ico_currency_price, :symbol, :total_supply, :token_price_low, :token_price_high, :ICO_valuation_low, :ICO_valuation_high, :ICO_start_date, :ICO_end_date, :soft_cap, :hard_cap, :country, :youtube, :twitter, :telegram, :reddit, :facebook, :youtube, :github, :description, :active, :investors, :title, :video)
+      params.require(:ico).permit(:name, :logo_img, :logo_img_alt, :overview, :meta_description, :header_img, :header_img_alt, :website, :report_date, :team, :advisors, :codebase, :community, :vision, :market, :traction, :marketing, :whitepaper, :roadmap, :ico_currency, :ico_currency_price, :symbol, :total_supply, :token_price_low, :token_price_high, :ICO_valuation_low, :ICO_valuation_high, :ICO_start_date, :ICO_end_date, :soft_cap, :hard_cap, :country, :youtube, :twitter, :telegram, :reddit, :facebook, :youtube, :github, :description, :active, :investors, :title, :video, :hype, :body)
     end
 end

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col s12 white-text">
         <h1><b>ICO Modeling</b></h1>
-        <h3>Coin price isn't everything, <i>valuation</i> is</h3>
+        <h3>Coin price isn't everything, <b><u>valuation</u></b> is</h3>
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
             <tr>
               <td width="50%">
                 <%= link_to (image_tag((ico.logo_img), class: 'circle responsive-img', height: '16', width: '16')), ico %> <%= link_to ico.name, ico %>
-                </br><%= link_to ico.meta_description, ico %>
+                </br><%= link_to ico.overview, ico %>
               </td>
               <td>
                 <%= link_to ico.ICO_start_date.strftime("%B" + " " + "%e"), ico %> to <%= link_to ico.ICO_end_date.strftime("%B" + " " + "%e"), ico %>

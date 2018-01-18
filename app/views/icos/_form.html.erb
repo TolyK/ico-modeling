@@ -23,6 +23,11 @@
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Page title for SEO" %>
     </div>
+    
+    <div>
+      <%= f.label :overview %>
+      <%= f.text_field :overview, placeholder: "Overview for home page" %>
+    </div>
   
     <div>
       <%= f.label :logo_img %>
@@ -40,8 +45,8 @@
     </div>
   
     <div>
-      <%= f.label :overview %>
-      <%= f.text_area :overview, :class => "tinymce", :rows => 40, :cols => 120  %>
+      <%= f.label :body %>
+      <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120  %>
     </div>
   
     <div>
@@ -82,6 +87,11 @@
     <div>
       <%= f.label :investors %>
       <%= f.number_field :investors %>
+    </div>
+    
+    <div>
+      <%= f.label :hype %>
+      <%= f.number_field :hype %>
     </div>
   
     <div>
@@ -176,12 +186,12 @@
   
     <div>
       <%= f.label :soft_cap %>
-      <%= f.number_field :soft_cap %>
+      <%= f.text_field :soft_cap %>
     </div>
   
     <div>
       <%= f.label :hard_cap %>
-      <%= f.number_field :hard_cap %>
+      <%= f.text_field :hard_cap %>
     </div>
   
     <div>

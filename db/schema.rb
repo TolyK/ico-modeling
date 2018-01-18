@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117191550) do
+ActiveRecord::Schema.define(version: 20180118192053) do
 
   create_table "icos", force: :cascade do |t|
     t.string   "name"
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20180117191550) do
     t.decimal  "ICO_valuation_high"
     t.date     "ICO_start_date"
     t.date     "ICO_end_date"
-    t.integer  "soft_cap"
-    t.integer  "hard_cap"
+    t.decimal  "soft_cap"
+    t.decimal  "hard_cap"
     t.string   "country"
     t.string   "youtube"
     t.string   "twitter"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20180117191550) do
     t.integer  "investors"
     t.string   "title"
     t.string   "video"
+    t.integer  "hype"
+    t.text     "body"
   end
 
   create_table "users", force: :cascade do |t|
