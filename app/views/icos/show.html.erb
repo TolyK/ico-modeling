@@ -1,210 +1,204 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <p id="notice"><%= notice %></p>
+  <h1 class='center'><%= image_tag((@ico.logo_img), class: 'circle responsive-img', height: '48', width: '48') %><%= @ico.name %></h1>
+  <h4 class='center'>ICO Valuation: $4m - $8m</h4>
+  <h5 class='center'><%= @ico.ICO_start_date.strftime("%B" + " " + "%e") %> to <%= @ico.ICO_end_date.strftime("%B" + " " + "%e") %></h5>
+  <div class='center'><%= link_to @ico.name + " token sale", @ico.website, class: 'waves-effect waves-light btn' %></div>
+  </br>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ico.name %>
-</p>
+<div class="parallax-container">
+  <div class="row">
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Team</b></span>
+          <span class="card-title"><b><%= @ico.team %></b></span>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Logo img:</strong>
-  <%= @ico.logo_img %>
-</p>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Advisors</b></span>
+          <span class="card-title"><b><%= @ico.advisors %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Vision</b></span>
+          <span class="card-title"><b><%= @ico.vision %></b></span>
+        </div>
+      </div>
+    </div>
+        <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Hype</b></span>
+          <span class="card-title"><b></b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Whitepaper</b></span>
+          <span class="card-title"><b><%= @ico.whitepaper %></b></span>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Logo img alt:</strong>
-  <%= @ico.logo_img_alt %>
-</p>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Community</b></span>
+          <span class="card-title"><b><%= @ico.community %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Traction</b></span>
+          <span class="card-title"><b><%= @ico.traction %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Roadmap</b></span>
+          <span class="card-title"><b><%= @ico.roadmap %></b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Marketing</b></span>
+          <span class="card-title"><b><%= @ico.marketing %></b></span>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Overview:</strong>
-  <%= @ico.overview %>
-</p>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Pro Investors</b></span>
+          <span class="card-title"><b><%= @ico.investors %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Codebase</b></span>
+          <span class="card-title"><b><%= @ico.codebase %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m3">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Industry</b></span>
+          <span class="card-title"><b><%= @ico.market %></b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax">
+    <%= image_tag (@ico.header_img) %>
+  </div>
+</div>
 
-<p>
-  <strong>Meta description:</strong>
-  <%= @ico.meta_description %>
-</p>
+<div class='container'>
+  <h2><%= @ico.name %> Overview</h2>
+  <p><%= @ico.description %></p>
+  
+  <h2><%= @ico.name %> ICO Details</h2>
+  <div class='row'>
+    <div class="col m6">
+      <p>Currency(s) accepted: <%= @ico.ico_currency %></p>
+    </div>
+    <div class="col m6">
+      <p><%= @ico.ico_currency %> price $<%= @ico.ico_currency_price %> on <%= @ico.report_date.strftime("%B" + " " + "%e" + " '" + "%g") %></p>
+    </div>
+    <div class="col m4">
+      <p>Symbol: <%= @ico.symbol %></p>
+    </div>
+    <div class="col m4">
+      <p>Total coin supply: <%= @ico.total_supply %></p>
+    </div>
+    <div class="col m4">
+      <p>Country: <%= @ico.country %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m6">
+      <p>Coin price range: <%= @ico.token_price_low %> - <%= @ico.token_price_high %></p>
+    </div>
+    <div class="col m6">
+      <p>Soft - Hard Cap: <%= @ico.soft_cap %> - <%= @ico.hard_cap %> </p>
+    </div>
+  </div>
+  
+  <p><%= @ico.description %></p>
 
-<p>
-  <strong>Header img:</strong>
-  <%= @ico.header_img %>
-</p>
 
-<p>
-  <strong>Header img alt:</strong>
-  <%= @ico.header_img_alt %>
-</p>
+  <div class="video-container">
+    <iframe width="853" height="480" src="<%= @ico.video %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+  
+  </br>
+  
+  <div class='row'>
+    <% if @ico.twitter? %>
+      <div class="col s1">
+        <div><%= link_to image_tag(('https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-twitter-512.png'), class: 'circle responsive-img', height: '24', width: '24'), @ico.twitter, alt: @ico.name + " Twitter page", target: :_blank %></div>
+      </div>
+    <% end %>
+    <% if @ico.telegram? %>
+      <div class="col s1">
+        <div><%= link_to image_tag(('https://image.flaticon.com/icons/png/512/355/355977.png'), class: 'circle responsive-img', height: '24', width: '24'), @ico.telegram, alt: @ico.name + " Telegram group", target: :_blank %></div>
+      </div>
+    <% end %>
+    <% if @ico.facebook? %>
+      <div class="col s1">
+        <div><%= link_to image_tag(('http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png'), class: 'circle responsive-img', height: '24', width: '24'), @ico.facebook, alt: @ico.name + " Facebook page", target: :_blank %></div>
+      </div>
+    <% end %>
+    <% if @ico.youtube? %>
+      <div class="col s1">
+        <div><%= link_to image_tag(('http://www.iconarchive.com/download/i98467/dakirby309/simply-styled/YouTube.ico'), class: 'circle responsive-img', height: '24', width: '24'), @ico.facebook, alt: @ico.name + " Facebook page", target: :_blank %></div>
+      </div>
+    <% end %>
+    <% if @ico.reddit? %>
+      <div class="col s1">  
+        <div><%= link_to image_tag(('https://cdn.worldvectorlogo.com/logos/reddit-2.svg'), class: 'circle responsive-img', height: '24', width: '24'), @ico.reddit, alt: @ico.name + " subreddit", target: :_blank %></div>
+      </div>
+    <% end %>
+    <% if @ico.github? %>
+      <div class="col s1">
+        <div><%= link_to image_tag(('https://image.flaticon.com/icons/svg/25/25231.svg'), class: 'circle responsive-img', height: '24', width: '24'), @ico.github, alt: @ico.name + " GitHub page", target: :_blank %></div>
+      </div>  
+    <% end %>
+  </div>
+  
+  <h2><%= @ico.name %> Analysis</h2>
+  <div><%= raw @ico.overview %></div>
+</div>
 
-<p>
-  <strong>Website:</strong>
-  <%= @ico.website %>
-</p>
+<% if policy(@ico).edit? %>
+  <%= link_to 'Edit', edit_ico_path(@ico) %> |
+<% end %>
 
-<p>
-  <strong>Report date:</strong>
-  <%= @ico.report_date %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <%= @ico.team %>
-</p>
-
-<p>
-  <strong>Advisors:</strong>
-  <%= @ico.advisors %>
-</p>
-
-<p>
-  <strong>Codebase:</strong>
-  <%= @ico.codebase %>
-</p>
-
-<p>
-  <strong>Community:</strong>
-  <%= @ico.community %>
-</p>
-
-<p>
-  <strong>Vision:</strong>
-  <%= @ico.vision %>
-</p>
-
-<p>
-  <strong>Market:</strong>
-  <%= @ico.market %>
-</p>
-
-<p>
-  <strong>Traction:</strong>
-  <%= @ico.traction %>
-</p>
-
-<p>
-  <strong>Marketing:</strong>
-  <%= @ico.marketing %>
-</p>
-
-<p>
-  <strong>Whitepaper:</strong>
-  <%= @ico.whitepaper %>
-</p>
-
-<p>
-  <strong>Roadmap:</strong>
-  <%= @ico.roadmap %>
-</p>
-
-<p>
-  <strong>Ico currency:</strong>
-  <%= @ico.ico_currency %>
-</p>
-
-<p>
-  <strong>Ico currency price:</strong>
-  <%= @ico.ico_currency_price %>
-</p>
-
-<p>
-  <strong>Symbol:</strong>
-  <%= @ico.symbol %>
-</p>
-
-<p>
-  <strong>Total supply:</strong>
-  <%= @ico.total_supply %>
-</p>
-
-<p>
-  <strong>Token price low:</strong>
-  <%= @ico.token_price_low %>
-</p>
-
-<p>
-  <strong>Token price high:</strong>
-  <%= @ico.token_price_high %>
-</p>
-
-<p>
-  <strong>Ico valuation low:</strong>
-  <%= @ico.ICO_valuation_low %>
-</p>
-
-<p>
-  <strong>Ico valuation high:</strong>
-  <%= @ico.ICO_valuation_high %>
-</p>
-
-<p>
-  <strong>Ico start date:</strong>
-  <%= @ico.ICO_start_date %>
-</p>
-
-<p>
-  <strong>Ico end date:</strong>
-  <%= @ico.ICO_end_date %>
-</p>
-
-<p>
-  <strong>Soft cap:</strong>
-  <%= @ico.soft_cap %>
-</p>
-
-<p>
-  <strong>Hard cap:</strong>
-  <%= @ico.hard_cap %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @ico.country %>
-</p>
-
-<p>
-  <strong>Youtube:</strong>
-  <%= @ico.youtube %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @ico.twitter %>
-</p>
-
-<p>
-  <strong>Telegram:</strong>
-  <%= @ico.telegram %>
-</p>
-
-<p>
-  <strong>Reddit:</strong>
-  <%= @ico.reddit %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @ico.facebook %>
-</p>
-
-<p>
-  <strong>Youtube:</strong>
-  <%= @ico.youtube %>
-</p>
-
-<p>
-  <strong>Github:</strong>
-  <%= @ico.github %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @ico.description %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @ico.active %>
-</p>
-
-<%= link_to 'Edit', edit_ico_path(@ico) %> |
-<%= link_to 'Destroy', @ico, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', icos_path %>
+<% if policy(@ico).destroy? %> 
+  <%= link_to 'Destroy', @ico, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> 
