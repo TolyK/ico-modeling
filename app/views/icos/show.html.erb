@@ -1,10 +1,14 @@
+<%= render 'layouts/header' %>
+
 <div class='container'>
   <p id="notice"><%= notice %></p>
   <h1 class='center'><%= image_tag((@ico.logo_img), class: 'circle responsive-img', height: '48', width: '48') %><%= @ico.name %></h1>
   <h4 class='center'>ICO Valuation: $4m - $8m</h4>
   <h5 class='center'><%= @ico.ICO_start_date.strftime("%B" + " " + "%e") %> to <%= @ico.ICO_end_date.strftime("%B" + " " + "%e") %></h5>
   <div class='center'><%= link_to @ico.name + " token sale", @ico.website, class: 'waves-effect waves-light btn' %></div>
+  <h6 class=center><%= link_to "Disclaimer", disclaimer_index_path %></h6>
   </br>
+  <i>Ratings on a 1-10 scale, 1 being the worst and 10 being the best</i>
 </div>
 
 <div class="parallax-container">
@@ -122,40 +126,11 @@
   <h2><%= @ico.name %> Overview</h2>
   <p><%= @ico.description %></p>
   
-  <h2><%= @ico.name %> ICO Details</h2>
-  <div class='row'>
-    <div class="col m6">
-      <p>Currency(s) accepted: <%= @ico.ico_currency %></p>
+  <% if @ico.video? %>
+    <div class="video-container">
+      <iframe width="853" height="480" src="<%= @ico.video %>" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="col m6">
-      <p><%= @ico.ico_currency %> price $<%= @ico.ico_currency_price %> on <%= @ico.report_date.strftime("%B" + " " + "%e" + " '" + "%g") %></p>
-    </div>
-    <div class="col m4">
-      <p>Symbol: <%= @ico.symbol %></p>
-    </div>
-    <div class="col m4">
-      <p>Total coin supply: <%= @ico.total_supply %></p>
-    </div>
-    <div class="col m4">
-      <p>Country: <%= @ico.country %></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col m6">
-      <p>Coin price range: <%= @ico.token_price_low %> - <%= @ico.token_price_high %></p>
-    </div>
-    <div class="col m6">
-      <p>Soft - Hard Cap: <%= @ico.soft_cap %> - <%= @ico.hard_cap %> </p>
-    </div>
-  </div>
-  
-  <p><%= @ico.description %></p>
-
-
-  <div class="video-container">
-    <iframe width="853" height="480" src="<%= @ico.video %>" frameborder="0" allowfullscreen></iframe>
-  </div>
-  
+  <% end %>  
   </br>
   
   <div class='row'>
@@ -190,6 +165,82 @@
       </div>  
     <% end %>
   </div>
+</div>
+<div class="parallax-container">
+  <div class='row'>
+    <div class="col m6">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Currency(s) accepted:</b></span>
+          <span class="card-title"><b><%= @ico.ico_currency %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m6">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b><%= @ico.ico_currency %> price: $<%= @ico.ico_currency_price %></b></span>
+          <span class="card-title"><b>on <%= @ico.report_date.strftime("%B" + " " + "%e" + " %Y") %></b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="col m4">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Symbol:</b></span>
+          <span class="card-title"><b><%= @ico.symbol %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m4">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Total coin supply:</b></span>
+          <span class="card-title"><b><%= @ico.total_supply %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m4">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Country:</b></span>
+          <span class="card-title"><b><%= @ico.country %></b></span>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <div class='row'>
+    <div class="col m6">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Coin price range:</b></span>
+          <span class="card-title"><b><%= @ico.token_price_low %> - <%= @ico.token_price_high %></b></span>
+        </div>
+      </div>
+    </div>
+    <div class="col m6">
+      <div class="card blue darken-4 opacity center">
+        <div class="card-content white-text">
+          <span class="card-title"><b>Soft - Hard Cap:</b></span>
+          <span class="card-title"><b>
+              <% if @ico.soft_cap? %>
+                <%= @ico.soft_cap %> 
+              <% else %>
+                ?? 
+              <% end %>
+              - <%= @ico.hard_cap %>
+            </b></span>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="parallax">
+    <%= image_tag (@ico.header_img) %>
+  </div>
+</div>
+<div class='container'>
   
   <h2><%= @ico.name %> Analysis</h2>
   <div><%= raw @ico.overview %></div>
