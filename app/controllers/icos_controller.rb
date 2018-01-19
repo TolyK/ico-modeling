@@ -4,7 +4,7 @@ class IcosController < ApplicationController
   # GET /icos
   # GET /icos.json
   def index
-    @icos = Ico.all
+    @icos = Ico.all.reverse
   end
 
   # GET /icos/1
