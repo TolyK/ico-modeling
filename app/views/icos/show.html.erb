@@ -243,13 +243,13 @@
             <% if @ico.token_price_low? %>
               $<%= @ico.token_price_low.round(4) %> 
             <% else %>
-              <%= (@ico.exchange_rate_low.to_f * @ico.ico_currency_price.to_f).round(4) %>
+              $<%= (@ico.ico_currency_price.to_f / @ico.exchange_rate_low.to_f).round(4) %>
             <% end %>
              -  
             <% if @ico.token_price_high? %>
               $<%= @ico.token_price_high.round(4) %> 
             <% else %>
-              $<%= (@ico.exchange_rate_high.to_f * @ico.ico_currency_price.to_f).round(4) %>
+              $<%= (@ico.ico_currency_price.to_f / @ico.exchange_rate_high.to_f).round(4) %>
             <% end %>
             </b></span>
         </div>
