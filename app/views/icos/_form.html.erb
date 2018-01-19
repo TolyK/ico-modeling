@@ -143,6 +143,16 @@
       <%= f.label :ico_currency_price %>
       <%= f.text_field :ico_currency_price %>
     </div>
+    
+    <div>
+      <%= f.label :exchange_rate %>
+      <%= f.text_field :exchange_rate_low, placeholder: "exchange rate for ICO's currency low i.e. 1ETH = 4,000" %>
+    </div>
+    
+    <div>
+      <%= f.label :exchange_rate %>
+      <%= f.text_field :exchange_rate_high, placeholder: "exchange rate for ICO's currency high i.e. 1ETH = 1,000" %>
+    </div>
   
     <div>
       <%= f.label :symbol %>

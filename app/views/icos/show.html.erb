@@ -3,7 +3,20 @@
 <div class='container'>
   <p id="notice"><%= notice %></p>
   <h1 class='center'><%= image_tag((@ico.logo_img), class: 'circle responsive-img', height: '48', width: '48') %><%= @ico.name %></h1>
-  <h4 class='center'>ICO Valuation: $4m - $8m</h4>
+  <h4 class='center'>ICO Valuation*: 
+    <% if @ico.token_price_low? %>
+      $<%= number_with_precision((@ico.token_price_low.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM 
+    <% else %>
+      $<%= number_with_precision((@ico.exchange_rate_low.to_f * @ico.ico_currency_price.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+    <% end %>
+     -  
+    <% if @ico.token_price_high? %> 
+      $<%= number_with_precision((@ico.token_price_high.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+    <% else %>
+      $<%= number_with_precision((@ico.exchange_rate_high.to_f * @ico.ico_currency_price.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+    <% end %>
+  </h4>
+  <p class='center small'>*in USD, the MM is for millions <a href="http://emoticoner.com"><img src="http://emoticoner.com/files/emoticons/smiley_faces/Dr-Evil-smiley-face.gif" alt="" /></a></p>
   <h5 class='center'><%= @ico.ICO_start_date.strftime("%B" + " " + "%e") %> to <%= @ico.ICO_end_date.strftime("%B" + " " + "%e") %></h5>
   <div class='center'><%= link_to @ico.name + " token sale", @ico.website, class: 'waves-effect waves-light btn' %></div>
   <h6 class=center><%= link_to "Disclaimer", disclaimer_index_path %></h6>
@@ -177,10 +190,10 @@
       </div>
     </div>
     <div class="col m6">
-      <div class="card blue darken-4 opacity center">
+      <div class="card blue darken-4 opacity center"> 
         <div class="card-content white-text">
-          <span class="card-title"><b><%= @ico.ico_currency %> price: $<%= @ico.ico_currency_price %></b></span>
-          <span class="card-title"><b>on <%= @ico.report_date.strftime("%B" + " " + "%e" + " %Y") %></b></span>
+          <span class="card-title"><b><%= @ico.ico_currency %> price: $<%= number_with_precision(@ico.ico_currency_price, :precision => 2, :delimiter => ',') %></b></span>
+          <span class="card-title"><b>on <%= @ico.report_date.strftime("%B" + " " + "%e," + " %Y") %></b></span>
         </div>
       </div>
     </div>
@@ -198,7 +211,7 @@
       <div class="card blue darken-4 opacity center">
         <div class="card-content white-text">
           <span class="card-title"><b>Total coin supply:</b></span>
-          <span class="card-title"><b><%= @ico.total_supply %></b></span>
+          <span class="card-title"><b><%= number_with_precision(@ico.total_supply, :precision => 0, :delimiter => ',') %></b></span> 
         </div>
       </div>
     </div>
@@ -216,7 +229,19 @@
       <div class="card blue darken-4 opacity center">
         <div class="card-content white-text">
           <span class="card-title"><b>Coin price range:</b></span>
-          <span class="card-title"><b><%= @ico.token_price_low %> - <%= @ico.token_price_high %></b></span>
+          <span class="card-title"><b>
+            <% if @ico.token_price_low? %>
+              $<%= @ico.token_price_low.round(4) %> 
+            <% else %>
+              <%= (@ico.exchange_rate_low.to_f * @ico.ico_currency_price.to_f).round(4) %>
+            <% end %>
+             -  
+            <% if @ico.token_price_high? %>
+              $<%= @ico.token_price_high.round(4) %> 
+            <% else %>
+              $<%= (@ico.exchange_rate_high.to_f * @ico.ico_currency_price.to_f).round(4) %>
+            <% end %>
+            </b></span>
         </div>
       </div>
     </div>
@@ -225,12 +250,12 @@
         <div class="card-content white-text">
           <span class="card-title"><b>Soft - Hard Cap:</b></span>
           <span class="card-title"><b>
-              <% if @ico.soft_cap? %>
-                <%= @ico.soft_cap %> 
+              <% if @ico.soft_cap? %> 
+                $<%= number_with_precision(@ico.soft_cap, :precision => 0, :delimiter => ',') %> 
               <% else %>
                 ?? 
               <% end %>
-              - <%= @ico.hard_cap %>
+              - $<%= number_with_precision(@ico.soft_cap, :precision => 0, :delimiter => ',') %>
             </b></span>
         </div>
       </div>

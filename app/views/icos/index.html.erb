@@ -18,7 +18,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2 class="center">Live ICOs</h2>
+<!--<h2 class="center">Live ICOs</h2>-->
 <h6 class=center><%= link_to "Disclaimer", disclaimer_index_path %></h6>
 
 <div class="row">
@@ -26,7 +26,7 @@
     <table class="highlight">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>ICO Name</th>
             <th>Dates</th>
             <th>Valuation</th>
           </tr>
@@ -42,7 +42,17 @@
                 <%= link_to ico.ICO_start_date.strftime("%B" + " " + "%e"), ico %> to <%= link_to ico.ICO_end_date.strftime("%B" + " " + "%e"), ico %>
               </td>
               <td>
-                <%= link_to ico.ICO_valuation_low, ico %> - <%= link_to ico.ICO_valuation_high, ico %>
+                <% if ico.token_price_low? %>
+                  $<%= number_with_precision((ico.token_price_low.to_f * ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM 
+                <% else %>
+                  $<%= number_with_precision((ico.exchange_rate_low.to_f * ico.ico_currency_price.to_f * ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+                <% end %>
+                 -  
+                <% if ico.token_price_high? %> 
+                  $<%= number_with_precision((ico.token_price_high.to_f * ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+                <% else %>
+                  $<%= number_with_precision((ico.exchange_rate_high.to_f * ico.ico_currency_price.to_f * ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+                <% end %>
               </td>
             </tr>
           <% end %>
