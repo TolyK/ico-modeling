@@ -18,7 +18,7 @@
   </h4>
   <p class='center small'>*in USD, the MM is for millions <a href="http://emoticoner.com"><img src="http://emoticoner.com/files/emoticons/smiley_faces/Dr-Evil-smiley-face.gif" alt="" /></a></p>
   <h5 class='center'><%= @ico.ICO_start_date.strftime("%B" + " " + "%e") %> to <%= @ico.ICO_end_date.strftime("%B" + " " + "%e") %></h5>
-  <div class='center'><%= link_to @ico.name + " token sale", @ico.website, class: 'waves-effect waves-light btn' %></div>
+  <div class='center'><%= link_to @ico.name + " token sale", @ico.website, class: 'waves-effect waves-light btn', target: :_blank %></div>
   <h6 class=center><%= link_to "Disclaimer", disclaimer_index_path %></h6>
   </br>
   <i>Ratings on a 1-10 scale, 1 being the lowest and 10 being the highest</i>
@@ -155,6 +155,11 @@
     <% if @ico.telegram? %>
       <div class="col s1">
         <div><%= link_to image_tag(('https://image.flaticon.com/icons/png/512/355/355977.png'), class: 'circle responsive-img', height: '24', width: '24'), @ico.telegram, alt: @ico.name + " Telegram group", target: :_blank %></div>
+      </div>
+    <% end %>
+    <% if @ico.medium? %>
+      <div class="col s1">
+        <div><%= link_to image_tag(('https://www.shareicon.net/download/2016/11/03/849458_medium_512x512.png'), class: 'circle responsive-img', height: '24', width: '24'), @ico.medium, alt: @ico.name + " Medium blog", target: :_blank %></div>
       </div>
     <% end %>
     <% if @ico.facebook? %>
