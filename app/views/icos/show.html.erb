@@ -9,13 +9,13 @@
     <% if @ico.token_price_low? %>
       $<%= number_with_precision((@ico.token_price_low.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM 
     <% else %>
-      $<%= number_with_precision((@ico.exchange_rate_low.to_f * @ico.ico_currency_price.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+      $<%= number_with_precision((@ico.ico_currency_price.to_f / @ico.exchange_rate_low.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
     <% end %>
      -  
     <% if @ico.token_price_high? %> 
       $<%= number_with_precision((@ico.token_price_high.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
     <% else %>
-      $<%= number_with_precision((@ico.exchange_rate_high.to_f * @ico.ico_currency_price.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
+      $<%= number_with_precision((@ico.ico_currency_price.to_f / @ico.exchange_rate_high.to_f * @ico.total_supply.to_f / 1000000), :precision => 1, :delimiter => ',') %>MM
     <% end %>
   </h4>
   <p class='center small'>*in USD, the MM is for millions <a href="http://emoticoner.com"><img src="http://emoticoner.com/files/emoticons/smiley_faces/Dr-Evil-smiley-face.gif" alt="" /></a></p>
