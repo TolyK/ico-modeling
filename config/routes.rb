@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+
+  root to: 'icos#index'
+
   get 'disclaimer/index'
 
   devise_for :users
   resources :icos
-  root to: 'icos#index'
+  get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
