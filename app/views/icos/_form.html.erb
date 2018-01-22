@@ -46,7 +46,7 @@
   
     <div>
       <%= f.label :body %>
-      <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120  %>
+      <%= f.text_area :body, autofocus: true, size: "39x10"  %>  <!-- :class => "tinymce", :rows => 40, :cols => 120 -->
     </div>
   
     <div>
@@ -258,5 +258,5 @@
       <%= f.submit %>
     </div>
   <% end %>
-  <%= tinymce %>
+  <!--<%= tinymce %>-->
 </div>

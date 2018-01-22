@@ -29,7 +29,7 @@
 
 <div class="row">
   <div class="col s12">
-    <table class="highlight">
+    <table class="highlight flow-text">
         <thead>
           <tr>
             <th>ICO Name</th>
@@ -45,7 +45,7 @@
                 </br><%= link_to ico.overview, ico %>
               </td>
               <td>
-                <%= link_to ico.ICO_start_date.strftime("%B" + " " + "%e"), ico %> to <%= link_to ico.ICO_end_date.strftime("%B" + " " + "%e"), ico %>
+                <%= link_to ico.ICO_start_date.strftime("%b" + " " + "%e"), ico %> to <%= link_to ico.ICO_end_date.strftime("%b" + " " + "%e"), ico %>
               </td>
               <td>
                 <% if ico.token_price_low? %>
