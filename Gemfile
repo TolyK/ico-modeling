@@ -16,7 +16,7 @@ gem 'font-awesome-sass'
 gem 'friendly_id', '~> 5.1.0'
 gem 'jquery-turbolinks'
 gem 'will_paginate', '~> 3.0.5'
-# gem 'tinymce-rails'
+gem 'tinymce-rails'
 gem 'material_icons'
 gem 'will_paginate-materialize'
 
