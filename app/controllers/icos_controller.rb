@@ -16,11 +16,13 @@ class IcosController < ApplicationController
   # GET /icos/new
   def new
     @ico = Ico.new
+    @icos = Ico.last(3).reverse
     authorize @ico
   end
 
   # GET /icos/1/edit
   def edit
+    @icos = Ico.last(3).reverse
     authorize @ico
   end
 
