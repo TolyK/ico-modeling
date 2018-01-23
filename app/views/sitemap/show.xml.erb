@@ -10,15 +10,10 @@
   </url>
   <% @icos.each do |ico| %>
     <url>
-      <loc><%= post_url(ico) %></loc>
+      <loc><%= ico_url(ico) %></loc>
       <changefreq>daily</changefreq>
     </url>
   <% end %>
   
-  <!--  < @products.each do |product| %>-->
-  <!--  <url>-->
-  <!--    <loc>< product_url(product) %></loc>-->
-  <!--    <changefreq>daily</changefreq>-->
-  <!--  </url>-->
-  <!--< end %>-->
+
 </urlset>

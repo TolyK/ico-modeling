@@ -10,6 +10,7 @@ class IcosController < ApplicationController
   # GET /icos/1
   # GET /icos/1.json
   def show
+    # @icos = Ico.last(3).reverse
   end
 
   # GET /icos/new

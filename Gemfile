@@ -20,6 +20,7 @@ gem 'tinymce-rails'
 gem 'material_icons'
 gem 'will_paginate-materialize'
 
+
 # images
 # gem 'fog'
 # gem 'carrierwave'
