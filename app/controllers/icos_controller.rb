@@ -30,6 +30,7 @@ class IcosController < ApplicationController
   # POST /icos.json
   def create
     @ico = Ico.new(ico_params)
+    @icos = Ico.last(3).reverse
     authorize @ico
     respond_to do |format|
       if @ico.save
