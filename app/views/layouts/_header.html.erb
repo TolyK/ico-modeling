@@ -1,11 +1,17 @@
 <header>  
-  <nav class=" blue darken-4 ">
+  <nav class=" blue darken-4 opacity ">
     <div class="container">
     <div class="nav-wrapper">
       <%= link_to "ICOModeling", root_path, class:' brand-logo' %>
       <ul id="nav-mobile" class="right">
         <% if current_user %>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% end %>
+        <li>Popular ICOs:</li>
+        <% @icos.each do |ico| %>
+          <% if ico != @ico %>
+            <li><b><%= link_to ico.name, ico %></b></li>
+          <% end %>
         <% end %>
       </ul>
     </div>
