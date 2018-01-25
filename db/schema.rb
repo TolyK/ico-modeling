@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119010255) do
+ActiveRecord::Schema.define(version: 20180125012805) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180119010255) do
     t.string   "ico_currency"
     t.decimal  "ico_currency_price"
     t.string   "symbol"
-    t.integer  "total_supply"
+    t.integer  "total_supply",       limit: 8
     t.decimal  "token_price_low"
     t.decimal  "token_price_high"
     t.decimal  "ICO_valuation_low"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20180119010255) do
     t.string   "github"
     t.string   "description"
     t.boolean  "active"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "investors"
     t.string   "title"
     t.string   "video"
