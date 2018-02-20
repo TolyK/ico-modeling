@@ -1,0 +1,53 @@
+<div class="container">
+  <%= form_for(post) do |f| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this ico from being saved:</h2>
+  
+        <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <h1>Add an Post!!</h1>
+    
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Page title" %>
+    </div>
+    
+    <div>
+      <%= f.label :subtitle %>
+      <%= f.text_field :subtitle, placeholder: "Page title for SEO" %>
+    </div>
+    
+  
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body, autofocus: true, size: "39x10"  %>  <!-- :class => "tinymce", :rows => 40, :cols => 120 -->
+    </div>
+  
+    <div>
+      <%= f.label :meta_description %>
+      <%= f.text_area :meta_description, placeholder: "for SEO, 50-300 characters; this is what comes up in google search" %>
+    </div>
+  
+    <div>
+      <%= f.label :header_image %>
+      <%= f.text_field :header_image, placeholder: "Logo img link" %>
+    </div>
+  
+    <div>
+      <%= f.label :header_alts %>
+      <%= f.text_field :header_alts, placeholder: "image alt, ICO description"  %>
+    </div>
+  
+    <div class="btn waves-effect waves-light">
+      <%= f.submit %>
+    </div>
+  <% end %>
+  <!--<= tinymce %>-->
+</div>

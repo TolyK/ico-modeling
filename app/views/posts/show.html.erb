@@ -1,0 +1,35 @@
+<% content_for :title, @post.subtitle %>
+<% provide(:meta_description, @post.meta_description) %>
+
+<!--<p id="notice"><%= notice %></p>-->
+
+
+<%= render 'layouts/header' %>
+
+<div class='container'>
+  <h1 class='center'><%= @post.title %></h1>
+  <%= render 'layouts/mailchimp' %>
+  </br>
+</div>
+
+<div class="parallax-container">
+  <div class="parallax">
+    <%= image_tag (@post.header_image) %>
+  </div>
+</div>
+
+
+<div class='container'>
+  </br>
+  <%= raw @post.body %>
+</div>
+
+<% if policy(@post).edit? %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+
+<% if policy(@post).destroy? %> 
+  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %> 
+
+</br>

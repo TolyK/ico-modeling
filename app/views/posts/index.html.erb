@@ -1,0 +1,29 @@
+<% content_for :title, "ICOModeling blog: ICO, blockchain, and everything decentralized" %>
+<% provide(:meta_description, "🚀 Our mission at ICOModeling is to provide the best analysis on ICOs to make us all better cryptocurrency investors.") %>
+
+
+<%= render 'layouts/header' %>
+
+<div class='container'>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <% @posts.each do |post| %>
+        <div class="card">
+          <div class="card-image">
+            <%= link_to (image_tag((post.header_image))), post %>
+          </div>
+          <div class="card-content">
+            <h2><%= link_to post.title, post, class: 'card-title' %></h2>
+            <p><%= link_to post.subtitle %></p>
+          </div>
+        </div>
+        </br>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if policy(Post.new).create? %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>

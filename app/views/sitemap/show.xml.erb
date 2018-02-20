@@ -15,5 +15,12 @@
     </url>
   <% end %>
   
+    <% @posts.each do |post| %>
+    <url>
+      <loc><%= post_url(post) %></loc>
+      <changefreq>daily</changefreq>
+    </url>
+  <% end %>
+  
 
 </urlset>

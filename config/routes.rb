@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   root to: 'icos#index'
 
   get 'disclaimer/index'
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :icos
   get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
+  
+  resources :posts, :path => 'stories' #changes all 'posts' URLs to 'stories'
+  get 'stories', :to => 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
