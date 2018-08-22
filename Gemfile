@@ -19,6 +19,8 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'tinymce-rails'
 gem 'material_icons'
 gem 'will_paginate-materialize'
+gem 'sprockets', '~>3.7.2'
+
 
 
 # images
